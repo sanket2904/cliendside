@@ -1,0 +1,144 @@
+.bundleHeader {
+   padding: 0 6%;
+    margin-top: 50px;
+    height: 60px;
+
+}
+
+.innerHeader {
+   padding: 20px 25px;
+   border: 2px solid #0f2733
+} 
+.bundleHeader h1 {
+    text-align: left;
+    font-size: 21px;
+    font-weight: 500;
+    
+}
+.imagesManage {
+    overflow-x: scroll;
+}
+.imagesManage span {
+    min-width:370px;
+    min-height:370px;
+   
+}
+.listSection {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9f0e7;
+    position: fixed;
+    top: 0;
+    transition: right 0.5s ease; 
+    right: -100vw;
+}
+.listSectionTransition {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9f0e7;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: right 0.5s ease;
+    right: 0;
+}
+.photosSection {
+
+    -ms-flex-item-align:center !important;
+    align-items: center;
+    --webkit-align-items: center;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #f5f5f5;
+   
+    
+
+}
+.recCard {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    height: 250px;
+    
+    font-weight: 500;
+    background-color: #fff;
+}
+.cardButton {
+    background-color: #0f2733;
+    height: 50px;
+    color: #f5f5f5;
+    display: grid;
+    text-align: center;
+    padding: 18px;
+    
+}
+.recCardContent {
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.scroller {
+    margin-top: 10vh;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+}
+.scroller div {
+    /* margin: 0 15px; */
+    
+    /* padding: 15px; */
+    box-sizing: border-box;
+    
+}
+.allsubitems {
+    margin-top: 10vh;
+}
+.viewContent div h1 {
+    border: #0f2733 2px solid;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 20px;
+}
+.detailsCard {
+  
+    border: #0f2733 2px solid;
+    box-sizing: border-box;
+    min-width: 340px;
+    max-width: 340px;
+}
+.detailsCard .DetailsCardHeader { 
+    color: #f5f5f5;
+    background-color: #0f2733;
+    padding: 5px 0;
+    padding-left: 15px;
+
+}
+.detailsSection {
+    margin-top: 10vh;
+    
+}
+.detailsCardBody {
+    padding: 15px;
+}
+.priceButton {
+    display:  flex;
+}
+.priceButton .priceDisplay {
+    background-color: #ee8a6f;
+    box-sizing: border-box;
+    border: 1px solid #0f2733;
+    padding: 14px 10px;
+    
+}
+
+.priceButton button {
+    font-size: 15px;
+    font-weight: 300;
+}
+.packageOptions .col-10 {
+    margin-top: 10vh;
+}
+.packageOptions div h3 {
+    font-size: 18px;
+    font-weight: 500;
+}

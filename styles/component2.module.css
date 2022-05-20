@@ -1,0 +1,27 @@
+.secondsec {
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    margin-top: 100px;
+}
+.contentsec {
+    grid-column: 2/-1;
+}
+.contentsec h1 {
+    margin: 40px 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+.contentsec p {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 680));
+   
+    font-weight: 600;
+    margin: 25px 0;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+.contentsec button {
+    font-weight: 600;
+}
+.illustration2 {
+    grid-column: 2;
+}

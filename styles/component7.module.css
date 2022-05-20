@@ -1,0 +1,6 @@
+.sectionseven {
+    background-color: #1c1e27;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+}

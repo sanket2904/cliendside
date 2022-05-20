@@ -1,0 +1,93 @@
+
+
+.topbarHidden {
+    position: absolute;
+    z-index: 1;
+    background-color: #fcfcfc;
+    width: 100vw;
+    height: 60vh;
+    top: -60vh;
+
+}
+.notactive {
+    transform: translateY(-60vh);
+    transition: transform 0.5s ease-in-out;
+}
+.active {
+    transform: translateY(60vh);
+    transition: transform 0.5s ease-in-out;
+}
+.topbarHidden .toplogo {
+    max-width: 100% !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr;
+    justify-self: center;
+    align-self: center;
+    
+}
+.topbarHidden ul {
+    margin-top: 20px
+}
+.topbarHidden ul li {
+    border-top: 1px solid #fc653c;
+   
+    padding: 20px;
+    margin: 0px 30px;
+}
+.topbarHidden ul li a {
+    
+    font-size: 22px;
+    font-weight: 500;
+    box-sizing: border-box;
+    color: #1c1e27;
+    
+}
+
+.topbar {
+    display: grid;
+    grid-template-columns: 6fr 3fr 3fr;
+    margin: 15px 0 25px 0;
+    height: 10vh;
+    box-sizing: border-box;
+}
+.toplogo img {
+    vertical-align: middle;
+    height: 50px;
+    width: 100%;
+    margin-top: 4px;
+}
+.toplogo {
+    max-width: 80%;
+    display: grid;
+    height: 10vh;
+    justify-self: center;
+    align-self: center;
+}
+.barsolid {
+    grid-column: 3/-1;
+    align-self: center;
+    justify-self: center;
+}
+.topbar ul li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.topbar ul {
+    list-style: none;
+}
+
+@media only screen and (min-width : 768px) {
+    /* Styles here  for tablet*/
+}
+
+
+@media only screen and (min-width : 1200px) {
+    /* Styles here for laptop */
+}
+
+
+@media only screen and (min-width : 1600px) {
+    /* Styles here  for desktop*/
+}

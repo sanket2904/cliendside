@@ -1,0 +1,164 @@
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100vw;
+    height: 100vh;
+    font-family: spartian;
+}
+
+.leftSection {
+    position: fixed;
+    grid-row: 1 / -1;
+    grid-column: 1/4;
+    height: 100%;
+    max-width: 350px;
+    min-width: 350px;
+    background-color: #FF7847;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.leftSection .nav {
+    list-style: none;
+    grid-row: 4/8;
+    margin-left: 0;
+    justify-self: center;
+}
+
+.leftSection p {
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.loadingBar {
+    width: 300px;
+    height: 15px;
+    align-self: center;
+    border: 2px solid black;
+    border-radius: 25px;
+    z-index: 2;
+    position: relative;
+}
+.loaderinner {
+    width: 0;
+    border-radius: 25px;
+    transition: width 400ms;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+    background-color: #FF7847;
+}
+.plus:hover {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,.1),0px 8px 8px 1px rgba(0,0,0,.07),0px 3px 8px 2px rgba(0,0,0,.08);
+    padding: 0 5px;
+    border-radius: 25px;
+    transition: box-shadow 300ms ease;
+}
+
+.Inv {
+    grid-row: 1/-1;
+    grid-column: 4/-1;
+    overflow-y: scroll;
+    padding: 25px;
+    box-sizing: border-box;
+}
+ .card {
+    height: 400px ;
+    width: 300px;
+    border: 2px solid #d2d3d7;
+    border-radius: 10px;
+    display: grid;
+    animation: small 300ms;
+
+}
+ .card:hover {
+    border: 2px solid #FF7847;
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,.1),0px 8px 8px 1px rgba(0,0,0,.07),0px 3px 8px 2px rgba(0,0,0,.08);
+
+    transition: border 300ms ease,box-shadow 200ms linear;
+}
+ .cardHolder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    
+}
+
+.cardLarge {
+    height: 500px;
+    width: 600px;
+    border: 2px solid #FF7847;
+    border-radius: 10px;
+    display: grid;
+    animation-fill-mode: forwards;
+    animation: large 300ms;
+    
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+}
+.innerOptions {
+    grid-row: 3/8;
+    grid-column: 2/8;
+}
+
+@keyframes large {
+    from {
+       
+        width: 300px;
+    }
+    to {
+        
+        width: 600px;
+    }
+}
+@keyframes small {
+    from {
+        width: 700px;
+    }
+    to {
+        width: 300px;
+    }
+}
+.AddStock {
+    padding: 25px;
+    width: 100%;
+    gap: 25px;
+    display: flex;
+    grid-row: 1/-1;
+    grid-column: 4/-1;
+}
+.AddingForm ,.cardLarge {
+    display: grid!important;
+    grid-template-columns: 1fr 6fr 1fr;
+    gap: 0!important;
+}
+.AddStock .cardLarge {
+    /* display: flex !important; */
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+.AddStock .card {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.AddStock .card svg {
+    grid-column: 2/4;
+    grid-row: 2/4;
+    max-width: 60px;
+    max-height: 60px;
+    justify-self: center;
+    align-self: flex-start;
+}
+.AddStock .card h3 {
+    grid-row: 3/4;
+    grid-column: 1/-1;
+    align-self: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-self: center;
+}

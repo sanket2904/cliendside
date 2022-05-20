@@ -1,0 +1,75 @@
+.bundlesSec {
+    display: grid;
+    margin-top: 25px;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+.innerElement {
+    margin-top: 25px auto;
+    justify-self:center ;
+    grid-column: 2;
+}
+.bundlesCard {
+    margin-top: 25px;
+    border: 5px solid #0f2733;
+    min-width: 320px;
+    max-width: 320px;
+    height: 500px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bundlesCard .cardHeader h5 {
+    font-size: 16px;
+    align-self: center;
+    margin-bottom: 0;
+    margin-left: 25px;
+    font-weight: 600;
+}
+
+.bundlesCard .cardHeader {
+    justify-self: left;
+    height: 10%;
+    display: grid;
+    width: 100%;
+    align-self: center;
+    border-bottom: 2px solid #0f2733;
+}
+
+.bundlesCard .cardContent {
+    height: 80%;
+}
+
+.bundlesCard .cardButton {
+    justify-self: left;
+    height: 10%;
+    display: grid;
+    background-color: #0f2733;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fcfcfc;
+    align-self: center;
+    border-top: 2px solid #0f2733;
+
+}
+
+.bundlesCard .cardButton a {
+    letter-spacing: 3px;
+    align-self: center;
+    color: #f5f5f5;
+    justify-self: center;
+}
+
+.bundlesCard .cardContent {
+    height: 80%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bundlesCard .cardContent .cardDesc {
+    justify-self: center;
+    align-self: center;
+    line-height: 20px;
+    max-width: 90%;
+}
