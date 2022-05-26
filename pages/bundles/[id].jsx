@@ -248,7 +248,7 @@ export default function BundlesMain(props) {
                     </div>
                 </section>
                 <section id="list" className={show ? style.listSectionTransition : style.listSection}>
-                    <div style={{ width: "90vw", height: "90vh", margin: "5vh auto",  border:"#0f2733 2px solid"}} className="container">
+                    <div style={{ width: "90vw", height: "90vh", margin: "5vh auto",  border:"#0f2733 2px solid",overflowY:"scroll"}} className="container">
                         <div className="row" style={{ height: "75px", borderBottom:"#0f2733 2px solid"}} >
                             <div className="col-9 align-self-center justify-self-center"  >
                                 <h1 style={{fontWeight:"500",textAlign:"center"}}>Bundle Specifications</h1>
