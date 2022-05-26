@@ -23,6 +23,16 @@
     min-height:370px;
    
 }
+.endSection {
+    background-color: #0f2733;
+    padding-top: 50px;
+    height: 30vh;
+    color: #f5f5f5;
+}
+.itemsDisplay {
+    padding: 15px 0;
+    margin: 10px auto;
+} 
 .listSection {
     width: 100vw;
     height: 100vh;

@@ -98,7 +98,7 @@ export default function BundlesMain(props) {
 
                 </section>
                 <section>
-
+                   
                     <div className={`${style.packageOptions} row`}>
                         <div className="col-1">
 
@@ -203,35 +203,43 @@ export default function BundlesMain(props) {
                         </div>
                     </div>
                 </section>
-                <section className={style.section5}>
+                <section style={{ backgroundColor:"#edd0b2",marginTop:"50px",paddingBottom:"50px"}} className={style.section5}>
                     <div className="container">
+                        <div className="row">
+                            <div style={{marginTop:"50px",textAlign:"center",fontSize:"22px",fontWeight:"500"}} className="col-12">
+                                Things you might need
+                            </div>
+                        </div>
                         <div className={`row ${style.scroller}`}>
+                            
                             {
 
-                            }
-                            {
+                                 data.recomendations.map(element => {
+                                     
+                                     return (
+                                         <div key={element.Id} className="col-6">
+                                             
+                                             <div className={style.recCard}>
+                                                 <div className={style.recCardHeader}>
+                                                     <Image width={200} height={200} src={element.ImagePaths[0]} alt="image" />
 
-                                data.recomendations && data.recomendations.map(element => {
-                                    <div key={element.Id} className="col-6">
-                                        <div className={style.recCard}>
-                                            <div className={style.recCardHeader}>
-                                                <Image width={200} height={200} src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="image" />
-
-                                            </div>
-                                            <div className={style.recCardContent}>
-                                                <h1>
-                                                    Lorem ipsum dolor
-                                                </h1>
-                                            </div>
+                                                 </div>
+                                                 <div className={style.recCardContent}>
+                                                     <h1>
+                                                        {element.Name}
+                                                     </h1>
+                                                 </div>
 
 
-                                        </div>
-                                        <div className={style.cardButton}>
-                                            <div className={style.buttonCard}>
-                                                ADD | $10
-                                            </div>
-                                        </div>
-                                    </div>
+                                             </div>
+                                             <div className={style.cardButton}>
+                                                 <div className={style.buttonCard}>
+                                                     ADD | ₹ {element.Price}
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     )
+                                    
                                 })
                             }
 
@@ -252,8 +260,63 @@ export default function BundlesMain(props) {
                                 <i style={{fontSize:"30px",margin:"0 auto"}} className="bi bi-x-lg"></i>
                             </div>
                         </div>
+                        {
+                            data.Items.map(element => {
+                                return (
+                                    <div  style={{fontSize:"14px",fontWeight:"600",borderBottom:"1px solid black"}} key={element.Id} className={`${style.itemsDisplay} row `}>
+                                        <div className="col-10">
+                                            <i className="bi bi-box"></i>  1 x {element.Name} 
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
-                </section>            
+                </section>    
+                <section>
+                    {/* this is faq section */}
+                </section>        
+                <section  className={style.endSection}>
+                    <div className="container ">
+                        <div className="row justify-content-center">
+                            <div className="col-10">
+                                Information
+                            </div>
+
+                        </div>
+                        <div style={{padding:"30px 0 0 0 ",fontSize:"16px"}} className="row justify-content-center">
+                            <div className="col-9">
+                                Contact
+                            </div>
+
+                        </div>
+                        <div style={{ padding: "20px 0 0 0 ", fontSize: "16px" }} className="row justify-content-center">
+                            <div className="col-9">
+                                About Us
+                            </div>
+
+                        </div>
+                        <div style={{ padding: "0px 0 0 0 ", fontSize: "25px" ,margin:"30px 0"}} className="row justify-content-center">
+                            <div className="col-10">
+                                <div className="row">
+                                    <div className="col-2">
+                                        <i className="bi bi-whatsapp"></i>
+
+                                    </div>
+                                    <div className="col-2">
+                                        <i className="bi bi-facebook"></i>
+
+                                    </div>
+
+                                    <div className="col-2">
+                                        <i className="bi bi-instagram"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
             </main>
 
         )

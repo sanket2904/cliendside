@@ -75,7 +75,7 @@ class Card extends React.Component {
                     </h5>
                 </div>
                 <div className={style.cardContent}>
-                    <div className={style.cardImage}>
+                    <div style={{textAlign:"center"}} className={style.cardImage}>
 
                         {
                             this.props.DisplayPicture && <Image src={this.props.DisplayPicture} alt="picture" width={300} height={200} />
