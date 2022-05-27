@@ -13,14 +13,12 @@ export default class Home extends Component {
   componentDidMount() {
     this.setState({ width: window.innerWidth })
     document.title = "Home - UniHelp"
-    try {
-      axios.post("https://api.yourunihelp.com/graphql", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
+    
+      axios.post("https://unihelpproduction.azurewebsites.net/graphql", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
         this.setState({ data: res.data.data.bundles })
         console.log(res.data.data.bundles)
-      })
-    } catch (error) {
-      console.log(error)
-    }
+      }).catch(err => console.log(err))
+    
     
   }
   

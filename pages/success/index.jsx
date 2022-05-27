@@ -13,7 +13,7 @@ export default class Component4 extends React.Component {
     componentDidMount() {
         let id =  new URL(document.location).searchParams.get("id")
         
-        axios.get("https://api.yourunihelp.com/checkout-session?id="+id).then(res => {
+        axios.get("https://unihelpproduction.azurewebsites.net/checkout-session?id="+id).then(res => {
             this.setState({data:res.data})
         })
     }

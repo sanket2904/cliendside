@@ -21,7 +21,7 @@ export default function BundlesMain(props) {
         document.title = "Bundles";
         
        
-        axios.get(`https://api.yourunihelp.com/api${window.location.pathname}`).then(res => {
+        axios.get(`https://unihelpproduction.azurewebsites.net/api${window.location.pathname}`).then(res => {
             setData(res.data)
             
             const arr = []

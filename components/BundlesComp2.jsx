@@ -12,7 +12,7 @@ export default class Bundles2 extends React.Component {
     componentDidMount() {
 
         
-            axios.post("https://api.yourunihelp.com/graphql", { "query": "{\n\tbundles {\n\t\tid,name,displayPicture,pageDescription,items {\n\t\t\tid,\n\t\t\tname,\n\t\t\tid,\n\t\t\tprice\n\t\t}\n\t\t\n\t}\n}" }).then(res => {
+            axios.post("https://unihelpproduction.azurewebsites.net/graphql", { "query": "{\n\tbundles {\n\t\tid,name,displayPicture,pageDescription,items {\n\t\t\tid,\n\t\t\tname,\n\t\t\tid,\n\t\t\tprice\n\t\t}\n\t\t\n\t}\n}" }).then(res => {
                 this.setState({ data: res.data.data.bundles }) 
             } )
             

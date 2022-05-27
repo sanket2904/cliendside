@@ -124,7 +124,7 @@ export default class Cart extends React.Component {
                                 })
                                 let res
                                 try {
-                                    axios.post("https://api.yourunihelp.com/checkout-session", form).then(res => {
+                                    axios.post("https://unihelpproduction.azurewebsites.net/checkout-session", form).then(res => {
                                         localStorage.setItem("sessionid",res.data.Item2) 
                                         return res
                                     }).then(res => {

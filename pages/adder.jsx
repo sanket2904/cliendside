@@ -19,7 +19,7 @@ export default class Adder extends Component {
             
             
             try {
-                var response = await axios.get("https://api.yourunihelp.com/api/items");
+                var response = await axios.get("https://unihelpproduction.azurewebsites.net/api/items");
                 
                 this.setState({ data: response.data })
             } catch (error) {
@@ -40,7 +40,7 @@ export default class Adder extends Component {
                         <button onClick={async() => {
                             this.setState({ item: true })
                             try {
-                                var response = await axios.get("https://api.yourunihelp.com/api/items");
+                                var response = await axios.get("https://unihelpproduction.azurewebsites.net/api/items");
                                 
                                 this.setState({ data: response.data })
                             } catch (error) {
@@ -53,7 +53,7 @@ export default class Adder extends Component {
                         <button onClick={async () => {
                             this.setState({ item:false})
                             try {
-                                var response = await axios.get("https://api.yourunihelp.com/api/bundles");
+                                var response = await axios.get("https://unihelpproduction.azurewebsites.net/api/bundles");
                                
                                 this.setState({data:response.data})
                             } catch (error) {
@@ -152,7 +152,7 @@ class Form extends Component {
         } catch (error) {
             console.log(error);
         }
-        axios.get("https://api.yourunihelp.com/api/items").then(res => {
+        axios.get("https://unihelpproduction.azurewebsites.net/api/items").then(res => {
             this.setState({ data: res.data })
             console.log(res.data)
         })
@@ -190,7 +190,7 @@ class Form extends Component {
 
 
                             try {
-                                var response = await axios.post("https://api.yourunihelp.com/api/items", formData)
+                                var response = await axios.post("https://unihelpproduction.azurewebsites.net/api/items", formData)
                                 console.log(response)
                                 alert(response.data)
                             } catch (error) {
@@ -281,7 +281,7 @@ class Form extends Component {
 
 
                             try {
-                                var response = await axios.post("https://api.yourunihelp.com/api/bundles", formData)
+                                var response = await axios.post("https://unihelpproduction.azurewebsites.net/api/bundles", formData)
                                 console.log(response)
                                 alert(response.data)
                             } catch (error) {
