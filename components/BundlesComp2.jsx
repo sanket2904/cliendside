@@ -12,8 +12,9 @@ export default class Bundles2 extends React.Component {
     componentDidMount() {
 
         
-            axios.post("https://unihelpproduction.azurewebsites.net/graphql", { "query": "{\n\tbundles {\n\t\tid,name,displayPicture,pageDescription,items {\n\t\t\tid,\n\t\t\tname,\n\t\t\tid,\n\t\t\tprice\n\t\t}\n\t\t\n\t}\n}" }).then(res => {
-                this.setState({ data: res.data.data.bundles }) 
+            axios.get("https://unihelpproduction.azurewebsites.net/api/bundles").then(res => {
+                console.log(res.data)
+                this.setState({ data: res.data }) 
             } )
             
            
@@ -46,7 +47,7 @@ export default class Bundles2 extends React.Component {
 
                                 return (
 
-                                    <Card style={{ marginBottom: "25px" }} key={element.id} id={element.id} name={element.name} DisplayPicture={element.displayPicture} pageDescription={element.pageDescription} />
+                                    <Card style={{ marginBottom: "25px" }} key={element.Id} id={element.Id} name={element.Name} DisplayPicture={element.DisplayPicture} pageDescription={element.pageDescription} />
                                 )
 
                             })

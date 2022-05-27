@@ -14,9 +14,9 @@ export default class Home extends Component {
     this.setState({ width: window.innerWidth })
     document.title = "Home - UniHelp"
     
-      axios.post("https://unihelpproduction.azurewebsites.net/graphql", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
-        this.setState({ data: res.data.data.bundles })
-        console.log(res.data.data.bundles)
+      axios.get("https://unihelpproduction.azurewebsites.net/api/bundles", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
+        this.setState({ data: res.data })
+       
       }).catch(err => console.log(err))
     
     
@@ -31,7 +31,7 @@ export default class Home extends Component {
 
   render() {
     if(this.state.width > 480) {
-      console.log(this.state.width)
+      
       return(
         <div className={style.large} style={{display:"grid",height:"100vh",width:"100vw"}}>
           <h1 style={{alignSelf:"center",justifySelf:"center",fontSize:"48px"}}>Please Use your phone to access the Site</h1>

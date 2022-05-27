@@ -143,7 +143,7 @@ class  List extends Component   {
 class Form extends Component {
     constructor(props,child) {
         super(props)
-        this.state = {data:[]}
+        this.state = {data:[],bundles:[]}
     }
 
     componentDidMount() {
@@ -155,6 +155,11 @@ class Form extends Component {
         axios.get("https://unihelpproduction.azurewebsites.net/api/items").then(res => {
             this.setState({ data: res.data })
             console.log(res.data)
+        })
+        axios.post("https://unihelpproduction.azurewebsites.net/graphql", { "query": "{bundles{name,id}}" }).then(res => {
+            this.setState({ bundles: res.data.data.bundles })
+            console.log(res.data.data.bundles)
+        
         })
     }
     render() {
@@ -211,6 +216,7 @@ class Form extends Component {
                         <input type="text" name="Name" placeholder="Name" id="name" />
                         <input type="textarea" name="Description" placeholder="Description" id="desc" />
                         <input type="text" name="Price" placeholder="Price" id="price" />
+                        <input type="text" name="pageDescription" placeholder="pageDescription" id="pageDescription" />
                         <label>
 
                             <p style={{ justifySelf: "center", alignSelf: "center" }}>Choose Main File</p>
@@ -224,6 +230,7 @@ class Form extends Component {
 
                         <div id="nextdiv" style={{textAlign:"left"}} >
                             <select name="data" id="ids" style={{width:"80%",height:"50px",margin:"15px 0"}}>
+                                <option value=""></option>
                                 {
                                    
 
@@ -254,7 +261,72 @@ class Form extends Component {
                                 
                             }}  style={{width:"30px",height:"30px",borderRadius:"25px"}}>+</button>
                         </div>
-                        
+                        <div id="nextdiv" style={{ textAlign: "left" }} >
+                            <select name="datarec" id="idsrec" style={{ width: "80%", height: "50px", margin: "15px 0" }}>
+                                <option value=""></option>
+                                {
+
+
+                                    this.state.data.map(function (item) {
+                                        return (
+                                            <option key={item.Id} value={item.Id}>{item.Name}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            <button onClick={() => {
+                                var div = document.createElement("div")
+                                div.setAttribute("style", "text-align:left;")
+                                var select = document.createElement("select")
+                                this.state.data.forEach(element => {
+                                    var option = document.createElement("option")
+                                    option.value = element.Id
+                                    option.innerHTML = element.Name
+                                    select.appendChild(option)
+                                });
+                                select.setAttribute("name", "datarec")
+                                select.setAttribute("id", "idsrec")
+                                select.setAttribute("style", "width:80%;height:50px;margin:15px 0;alignSelf:left")
+                                div.appendChild(select)
+                                var container = document.getElementById("check")
+                                container.insertBefore(div, container.children[container.childElementCount - 1])
+
+
+                            }} style={{ width: "30px", height: "30px", borderRadius: "25px" }}>+</button>
+                        </div>
+                        <div id="nextdiv" style={{ textAlign: "left" }} >
+                            <select name="bundlerec" id="idsrec" style={{ width: "80%", height: "50px", margin: "15px 0" }}>
+                                <option value=""></option>
+                                {
+
+
+                                    this.state.bundles.map(function (item) {
+                                        return (
+                                            <option key={item.Id} value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            <button onClick={() => {
+                                var div = document.createElement("div")
+                                div.setAttribute("style", "text-align:left;")
+                                var select = document.createElement("select")
+                                this.state.data.forEach(element => {
+                                    var option = document.createElement("option")
+                                    option.value = element.Id
+                                    option.innerHTML = element.Name
+                                    select.appendChild(option)
+                                });
+                                select.setAttribute("name", "datarec")
+                                select.setAttribute("id", "idsrec")
+                                select.setAttribute("style", "width:80%;height:50px;margin:15px 0;alignSelf:left")
+                                div.appendChild(select)
+                                var container = document.getElementById("check")
+                                container.insertBefore(div, container.children[container.childElementCount - 1])
+
+
+                            }} style={{ width: "30px", height: "30px", borderRadius: "25px" }}>+</button>
+                        </div>
 
 
                         <button onClick={async () => {
@@ -263,10 +335,15 @@ class Form extends Component {
                             let price = document.getElementById("price").value;
                             let main = document.getElementById("MainPicture").files;
                             let files = document.getElementById("files").files;
-                            let data = document.querySelectorAll("select")
-                           
+                            let data = document.querySelectorAll("#ids")
+                            let pageDescription = document.getElementById("pageDescription").value;
+                            let datarec = document.querySelectorAll("#idsrec")
+                            let bundlerec = document.querySelectorAll("#idsbundlerec")
                                 
                             let formData = new FormData();
+                            datarec.forEach(element => {
+                                formData.append("datarec", element.value)
+                            })
                             formData.append("Name", name);
                             formData.append("Description", desc);
                             formData.append("Price", price);
@@ -277,11 +354,11 @@ class Form extends Component {
                             for (let i = 0; i < files.length; i++) {
                                 formData.append("files", files[i]);
                             }
+                            
 
-
-
+                            console.log(formData)
                             try {
-                                var response = await axios.post("https://unihelpproduction.azurewebsites.net/api/bundles", formData)
+                                var response = await axios.post("https://localhost:7273/api/bundles", formData)
                                 console.log(response)
                                 alert(response.data)
                             } catch (error) {
