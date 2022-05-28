@@ -52,7 +52,7 @@ class Card extends React.Component {
                         <Image src={this.props.data.DisplayPicture} alt="picture" width={300} height={200} />
                     </div>
                     <div className={style.cardDesc}>
-                        <p style={{ fontSize: "calc(16px + 6 * ((100vw - 320px) / 680))", fontWeight: "600" }}>{this.props.data.pageDescription}</p>
+                        <p style={{ fontSize: "16px",fontWeight:"500",lineHeight:"24px" }}>{this.props.data.pageDescription}</p>
                     </div>
                 </div>
                 <div  className={style.cardButton}>

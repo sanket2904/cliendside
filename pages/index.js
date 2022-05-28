@@ -75,7 +75,7 @@ export default class Home extends Component {
             <Head>
               <title>Home - Unihelp</title>
             </Head>
-            <Topbar />
+            <Topbar home={{opacity:"1"}  }  />
             <Component1 />
             <Component2 />
             <Component4 data={this.state.data} />

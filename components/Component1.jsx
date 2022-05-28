@@ -13,7 +13,7 @@ export default class Component1 extends React.Component {
                        <h1>
                            We help you settle
                        </h1>
-                       <p  style={{lineHeight:"30px"}}>
+                       <p  style={{lineHeight:"30px",opacity:"0.6"}}>
                            We are here to Settle you right in and turn your new house across seas into your home.
                        </p>
                        <div className={style.buttons}>

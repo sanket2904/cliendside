@@ -86,7 +86,7 @@ class Card extends React.Component {
                        
                     </div>
                     <div className={style.cardDesc}>
-                        <p style={{ fontSize: "calc(16px + 6 * ((100vw - 320px) / 680))", fontWeight: "600" }}>{this.props.pageDescription}</p>
+                        <p style={{  fontWeight: "500" }}>{this.props.pageDescription}</p>
                     </div>
                 </div>
                 <div className={style.cardButton}>

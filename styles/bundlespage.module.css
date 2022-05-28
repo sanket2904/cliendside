@@ -1,7 +1,7 @@
 .bundleHeader {
    padding: 0 6%;
     margin-top: 50px;
-    height: 60px;
+    min-height: 60px;
 
 }
 
@@ -13,6 +13,7 @@
     text-align: left;
     font-size: 21px;
     font-weight: 500;
+    line-height: 25px;
     
 }
 .imagesManage {
@@ -129,6 +130,9 @@
 }
 .detailsCardBody {
     padding: 15px;
+    line-height: 25px;
+    font: 16px;
+
 }
 .priceButton {
     display:  flex;

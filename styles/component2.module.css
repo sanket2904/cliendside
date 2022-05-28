@@ -14,7 +14,7 @@
 .contentsec p {
     font-size: calc(18px + 6 * ((100vw - 320px) / 680));
    
-    font-weight: 600;
+    font-weight: 500;
     margin: 25px 0;
     max-width: 90%;
     box-sizing: border-box;

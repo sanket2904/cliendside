@@ -20,6 +20,7 @@
     text-align: center;
 }
 .bundlesHeader p {
+    opacity: 0.8;
     line-height: 28px;
     justify-self: center;
     text-align: center;

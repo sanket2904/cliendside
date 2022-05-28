@@ -9,6 +9,9 @@
     top: -60vh;
 
 }
+.barlist li a {
+    opacity: 0.6;
+}
 .notactive {
     transform: translateY(-60vh);
     transition: transform 0.5s ease-in-out;

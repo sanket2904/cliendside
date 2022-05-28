@@ -37,21 +37,20 @@ export default class Topbar extends React.Component {
                                     <Svvvvg style={{maxWidth:"150px",maxHeight:"100px",marginLeft:"20px"}} />
                                     <CrossSvg style={{ justifySelf: "end", alignSelf: "center", marginRight: "25px", width: "50px", height: "50px" }} onClick={(e) => this.setState({ show: !this.state.show })} />
                                 </div>
-                        <ul className={style.barlist}>
-                            <li>
-
+                        <ul   className={style.barlist}>
+                            <li  id='home'>
                                 <Link href="/">Home</Link>
                             </li>
                             {/* <li>
                                 <Link href="/aboutus">About Us</Link>
                             </li> */}
-                            <li>
+                            <li id="bundles">
                                 <Link href="/bundles">Explore Bundles</Link>
                             </li>
                                     {/* <li style={{ borderBottom:"1px solid #fc653c"}}>
                                 <Link href="">Explore Marketplace</Link>
                             </li> */}
-                                <li style={{ borderBottom: "1px solid #fc653c" }}>
+                                <li id='cart' style={{ borderBottom: "1px solid #fc653c" }}>
                                     <Link href="/cart">Cart</Link>
                                 </li>
                         </ul>

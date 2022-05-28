@@ -11,7 +11,7 @@ export default class Component1 extends React.Component {
                         <h1>
                             Who Are We?
                         </h1>
-                        <p style={{lineHeight:"25px"}}>
+                        <p style={{lineHeight:"25px",opacity:"0.6"}}>
                             Our Journey began when two amigos who met at Cardiff
                             University, UK; realised that they can help fellow students get rid of the
                             stress that comes when you are moving countries for your studies. From
