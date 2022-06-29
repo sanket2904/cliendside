@@ -1,4 +1,4 @@
-import  { Component } from "react";
+import  { Component, useEffect,useState } from "react";
 import Component1 from "../components/Component1"
 import Component2 from "../components/Component2"
 import Component4 from "../components/Component4"
@@ -9,28 +9,24 @@ import Topbar from "../components/Topbar"
 import style from "../styles/mainHome.module.css"
 import axios from "axios";
 import Head from "next/head";
-export default class Home extends Component {
-  componentDidMount() {
-    this.setState({ width: window.innerWidth })
+export default function Home({data}) {
+  const [width,setWidth] = useState(0);
+  useEffect(() => {
+    setWidth(window.innerWidth)
     document.title = "Home - UniHelp"
-    
-      axios.get("https://unihelpproduction.azurewebsites.net/api/bundles", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
-        this.setState({ data: res.data })
-       
-      }).catch(err => console.log(err))
-    
-    
-  }
-  
-  constructor(props) {
-    super(props)
-    this.state = {width:0,data:[]}
-  }
-  
-  
 
-  render() {
-    if(this.state.width > 480) {
+    // axios.get("https://unihelpproduction.azurewebsites.net/api/bundles", { "query": "{bundles{id,name,displayPicture,pageDescription}}" }).then(res => {
+    //   this.setState({ data: res.data })
+
+    // }).catch(err => console.log(err))
+
+
+  },[] ) 
+  
+  
+  
+    
+    if(width > 480) {
       
       return(
         <div className={style.large} style={{display:"grid",height:"100vh",width:"100vw"}}>
@@ -78,7 +74,7 @@ export default class Home extends Component {
             <Topbar home={{opacity:"1"}  }  />
             <Component1 />
             <Component2 />
-            <Component4 data={this.state.data} />
+            <Component4 data={data} />
             <Component5 />
             <Component6 />
             <Component7 />
@@ -89,6 +85,23 @@ export default class Home extends Component {
     }
     
 
-  }
+  
 }
 
+
+export async function getServerSideProps() {
+  let res
+  try {
+    res = await axios.get("https://unihelpproduction.azurewebsites.net/api/bundles")
+    
+  } catch (error) {
+    console.log(error)
+  }
+  
+
+  return {
+    props: {
+      data: res.data
+    }
+  }
+}

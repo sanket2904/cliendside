@@ -4,27 +4,16 @@ import style from "../styles/bundles2.module.css"
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-export default class Bundles2 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {data:[]}
-    }
-    componentDidMount() {
 
-        
-            axios.get("https://unihelpproduction.azurewebsites.net/api/bundles").then(res => {
-                console.log(res.data)
-                this.setState({ data: res.data }) 
-            } )
-            
-           
-            
-        
-    }
+
+
+
+export default function Bundles2({data}) {
     
-    render() {
+    
+        console.log(data)
         
-        if(this.state.data.length === 0) {
+        if(!data) {
             return(
                 <div className="container">
                     <div style={{ height: "500px" }} className="row align-items-center justify-content-center">
@@ -43,7 +32,7 @@ export default class Bundles2 extends React.Component {
                 <section className={style.bundlesSec}>
                     <section className={style.innerElement}>
                         {
-                            this.state.data.map(element => {
+                            data.map(element => {
 
                                 return (
 
@@ -58,7 +47,7 @@ export default class Bundles2 extends React.Component {
             )
         }
         
-    }
+    
 
 }
 
@@ -96,5 +85,4 @@ class Card extends React.Component {
         )
     }
 }
-
 

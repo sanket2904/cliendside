@@ -8,39 +8,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export default function BundlesMain(props) {
+export default function BundlesMain({data,img}) {
 
-    const [images,setImages] = React.useState([]);
     
-    const [data, setData] = React.useState();
     const [cart,setCart] = React.useState([]);
     const [width, setWidth] = React.useState(0);
     const [show,setShow] = React.useState(false);   
-
+  
     useEffect(() => {
         document.title = "Bundles";
-        
-       
-        axios.get(`https://unihelpproduction.azurewebsites.net/api${window.location.pathname}`).then(res => {
-            setData(res.data)
-            
-            const arr = []
-            arr.push(res.data.DisplayPicture)
-            for (let i = 0; i < res.data.Items.length; i++) {
-                for (let j = 0; j < res.data.Items[i].ImagePaths.length; j++) {
-                    arr.push(res.data.Items[i].ImagePaths[j])
-                }
-            }
-            setImages(arr)
-        
-        
-        })
-        
-        
-        console.log(data)
 
-        
-            
             
         
         setWidth(window.innerWidth);
@@ -50,11 +27,8 @@ export default function BundlesMain(props) {
     },[])
     
     
-    // localstorageCart = () => {
-    //     localStorage.setItem("cart", "test" );
-    // }
-
-    if(data && images.length) {
+    
+    if(data && img.length) {
         return (
             <main style={{overflowX:"hidden"}} >
                 <Topbar />
@@ -70,10 +44,10 @@ export default function BundlesMain(props) {
 
                         <div className={`col-12 ${style.imagesManage}`} style={{ display: "flex", flexDirection: "row", padding: "0" }}>
                             {
-                                images.map((image, index) => {
+                                img.map((image, index) => {
                                     
                                     if (image) {
-                                        return <img style={{ maxWidth: "100vw", maxHeight: "400px", marginRight: "40px" }} src={image} alt="image" />
+                                        return <img style={{ maxWidth: "90vw", maxHeight: "45vh", marginRight: "40px" }} src={image} alt="image" />
                                     }
                                     else {
                                         return <h1>Loading</h1>
@@ -196,7 +170,7 @@ export default function BundlesMain(props) {
                         <div className={`row justify-content-center ${style.viewContent}`} >
                             <div className="col-11">
                                 <div onClick={ () =>  setShow(true)}>
-                                    <h1>View full specs</h1>
+                                    <h1>This bundle includes:</h1>
                                 </div>
                             </div>
 
@@ -323,7 +297,7 @@ export default function BundlesMain(props) {
         
     }
     else {
-        console.log(images)
+       
         return (
             <div className="container">
                 <div style={{ height: "500px" }} className="row align-items-center justify-content-center">
@@ -355,6 +329,32 @@ function RightIcon(props) {
 }
 
 
+export async function getServerSideProps(context) {
+    
+    let res, arr 
+
+    try {
+        res = await axios.get(`https://unihelpproduction.azurewebsites.net/api${context.resolvedUrl}`)
+        arr = []
+        arr.push(res.data.DisplayPicture)
+        for (let i = 0; i < res.data.Items.length; i++) {
+            for (let j = 0; j < res.data.Items[i].ImagePaths.length; j++) {
+                arr.push(res.data.Items[i].ImagePaths[j])
+            }
+        }
+        
+    } catch (error) {
+        console.log(error)
+    }
+    
+    
+    return {
+        props: {
+            data:res.data,
+            img: arr,
+        }, // will be passed to the page component as props
+    }
+}
 
 
 
